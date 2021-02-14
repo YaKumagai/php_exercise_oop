@@ -12,6 +12,7 @@
 - (git branch -m master main)
 - git push -u origin main
 
+- git@github.com:YaKumagai/php_exercise_oop.git
 - git remote add origin git@github.com:YaKumagai/php_exercise_oop.git
 - git branch -M main
 - git push -u origin main
@@ -22,7 +23,7 @@
 - git remote -v
 - git branch
 - git branch feature
-
+- feature
 - git checkout main
 - git checkout feature
 - 
