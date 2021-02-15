@@ -6,7 +6,7 @@
 - git status
 - git add .
 - git commit -m "first commit"
-- git commit -m "2021年2月10日 commit"
+- git commit -m "2021年2月15日 commit"
 
 - git@github.com:YaKumagai/php_exercise_oop.git
 - git remote add origin git@github.com:YaKumagai/php_exercise_oop.git
