@@ -21,17 +21,10 @@ class Car {
 }
 
 // 以下にCarクラスを継承したTaxiクラスを記述して下さい
-class Taxi {
+
+class Taxi extends Car {
     private $xPickUp;
-
-    // コンストラクタ
-    public function __construct($name, $number, $color)
-    {
-        $this->xName = $name;
-        $this->xNumber = $number;
-        $this->xColor = $color;
-    }
-
+    
     public function pickUp($passenger)
     {
         $this->xPickUp = $passenger;
