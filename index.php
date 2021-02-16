@@ -13,10 +13,24 @@ class Car {
         $this->xNumber = $number;
         $this->xColor = $color;
     }
-    
+    public function getName()
+    {
+        return $this->xName;
+    }
+
+    public function getNumber()
+    {
+        return $this->xNumber;
+    }
+
+    public function getColor()
+    {
+        return $this->xColor;
+    }
+
     public function information()
     {
-        echo '車の車種：' . $this->xName . '、車体番号：' . $this->xNumber . '、カラー：' . $this->xColor . ' です。';
+        echo '車の車種：' . $this->getName() . '、車体番号：' . $this->getNumber() . '、カラー：' . $this->getColor() . ' です。';
     }
 }
 
@@ -32,7 +46,7 @@ class Taxi extends Car {
 
     public function information()
     {
-        echo '車の車種：' . $this->xName . '、車体番号：' . $this->xNumber . '、カラー：' . $this->xColor . '、乗車人数は' . $this->xPickUp . '人です。';
+        echo '車の車種：' . $this->getName() . '、車体番号：' . $this->getNumber() . '、カラー：' . $this->getColor() . '、乗車人数は' . $this->xPickUp . '人です。';
     }
 
     public function lower($passenger)
