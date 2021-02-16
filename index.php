@@ -7,28 +7,13 @@ class Car {
     private $xColor;
 
     // コンストラクタ
-    public function __construct($Name, $Number, $Color)
+    public function __construct($name, $number, $color)
     {
-        $this->xName = $Name;
-        $this->xNumber = $Number;
-        $this->xColor = $Color;
+        $this->xName = $name;
+        $this->xNumber = $number;
+        $this->xColor = $color;
     }
-
-    public function getName()
-    {
-        return $this->xName;
-    }
-
-    public function getNumber()
-    {
-        return $this->xNumber;
-    }
-
-    public function getColor()
-    {
-        return $this->xColor;
-    }
-
+    
     public function information()
     {
         echo '車の車種：' . $this->xName . '、車体番号：' . $this->xNumber . '、カラー：' . $this->xColor . ' です。';
@@ -37,50 +22,31 @@ class Car {
 
 // 以下にCarクラスを継承したTaxiクラスを記述して下さい
 class Taxi {
-    private $xName;
-    private $xNumber;
-    private $xColor;
+    private $xPickUp;
 
     // コンストラクタ
-    public function __construct($Name, $Number, $Color)
+    public function __construct($name, $number, $color)
     {
-        $this->xName = $Name;
-        $this->xNumber = $Number;
-        $this->xColor = $Color;
-    }
-
-    public function getName()
-    {
-        return $this->xName;
-    }
-
-    public function getNumber()
-    {
-        return $this->xNumber;
-    }
-
-    public function getColor()
-    {
-        return $this->xColor;
+        $this->xName = $name;
+        $this->xNumber = $number;
+        $this->xColor = $color;
     }
 
     public function pickUp($passenger)
     {
-        $this->pickUp = $passenger;
+        $this->xPickUp = $passenger;
     }
 
     public function information()
     {
-        echo '車の車種：' . $this->xName . '、車体番号：' . $this->xNumber . '、カラー：' . $this->xColor . '、乗車人数は' . $this->pickUp . '人です。';
+        echo '車の車種：' . $this->xName . '、車体番号：' . $this->xNumber . '、カラー：' . $this->xColor . '、乗車人数は' . $this->xPickUp . '人です。';
     }
 
     public function lower($passenger)
     {
-        $this->lower = $passenger;
-
-        if ($this->pickUp - $this->lower >= 0) {
-            echo $this->lower . '人降車しました。';
-            $this->pickUp = $this->pickUp - $this->lower;
+        if ($this->xPickUp - $passenger >= 0) {
+            echo $passenger . '人降車しました。';
+            $this->xPickUp -= $passenger;
         } else {
             echo '降車人数に誤りがあります。';
         }
