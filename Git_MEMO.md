@@ -20,9 +20,11 @@
 - git remote -v
 - git branch
 - git branch feature
+- git branch feature2
 - feature
 - git checkout main
 - git checkout feature
+- git checkout feature2
 - 
 - rm -rf .git  （git init取り消し）
 - 

@@ -29,66 +29,89 @@ class Car {
         return $this->xColor;
     }
 
-    public function setName($Name)
+    public function information()
+    {
+        echo '車の車種：' . $this->xName . '、車体番号：' . $this->xNumber . '、カラー：' . $this->xColor . ' です。';
+    }
+}
+
+// 以下にCarクラスを継承したTaxiクラスを記述して下さい
+class Taxi {
+    private $xName;
+    private $xNumber;
+    private $xColor;
+
+    // コンストラクタ
+    public function __construct($Name, $Number, $Color)
     {
         $this->xName = $Name;
-    }
-
-    public function setNumber($Number)
-    {
         $this->xNumber = $Number;
+        $this->xColor = $Color;
     }
 
-    public function setColor($Color)
+    public function getName()
     {
-        $this->xColor = $Color;
+        return $this->xName;
+    }
+
+    public function getNumber()
+    {
+        return $this->xNumber;
+    }
+
+    public function getColor()
+    {
+        return $this->xColor;
+    }
+
+    public function pickUp($passenger)
+    {
+        $this->pickUp = $passenger;
     }
 
     public function information()
     {
-        echo '車の車種：' . $this->xName . '、車体番号：' . $this->xNumber . '、カラー：' . $this->xColor . ' です。<br>';
+        echo '車の車種：' . $this->xName . '、車体番号：' . $this->xNumber . '、カラー：' . $this->xColor . '、乗車人数は' . $this->pickUp . '人です。';
+    }
+
+    public function lower($passenger)
+    {
+        $this->lower = $passenger;
+
+        if ($this->pickUp - $this->lower >= 0) {
+            echo $this->lower . '人降車しました。';
+            $this->pickUp = $this->pickUp - $this->lower;
+        } else {
+            echo '降車人数に誤りがあります。';
+        }
     }
 }
 
-
-// 以下を実行した時にエラーがでないようにして下さい。
+// 以下を実行した時にエラーがでないようにして下さい
 // Carクラスのインスタンスを生成
 // 引数 : 車名、車体番号、カラー
 $car1 = new Car('ランクル', 100, 'black');
 
-// 車名(車種)を取得
-echo $car1->getName();
-echo '<br>';
-
-// 車体番号を取得
-echo $car1->getNumber();
-echo '<br>';
-
-// カラーを取得
-echo $car1->getColor();
-echo '<br>';
-
-// 車の情報表示を表示
+// 車の情報を表示
 echo $car1->information();
 echo '<br>';
+echo '<hr>';
 
-// 車名(車種)を更新
-$car1->setName('アルファード');
-echo $car1->getName();
+// Taxiクラスのインスタンスを生成
+$taxi1 = new Taxi('クラウンのタクシー', 222, 'black');
+
+// 3人乗車
+$taxi1->pickUp(3);
+
+// タクシーの情報表示を表示
+echo $taxi1->information();
 echo '<br>';
 
-// 車体番号を取得
-$car1->setNumber(200);
-echo $car1->getNumber();
+// 2人降車
+$taxi1->lower(2);
 echo '<br>';
 
-// カラーを取得
-$car1->setColor('red');
-echo $car1->getColor();
-echo '<br>';
-
-// 車の情報表示を表示
-echo $car1->information();
-echo '<br>';
+// 2人降車
+$taxi1->lower(2);
 
 // http://localhost/php_exercise/oop/index.php
